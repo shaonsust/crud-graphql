@@ -1,0 +1,82 @@
+query getActors {
+  actors {
+    id
+    name
+  }
+}
+
+query getActor {
+  actor(id: 2) {
+    id
+    name
+  }
+}
+
+query getMovies {
+  movies {
+    id
+    title
+    year
+    actors {
+      id
+      name
+    }
+  }
+}
+
+query getMovie {
+  movie(id: 1) {
+    id
+    title
+    actors {
+      id
+      name
+    }
+  }
+}
+
+mutation createActor {
+  createActor(input: {name: "Tokita Ohma"}) {
+    actor {
+      id
+      name
+    }
+  }
+}
+
+mutation updateActor {
+  updateActor(id: 1, input: {name: "Kurugi Gensai"}) {
+    actor {
+      id
+      name
+    }
+  }
+}
+
+mutation createMovie {
+  createMovie(input: {title: "Kengan Omega", year: 2020, actors: [{id: 1}]}) {
+    movie {
+      id
+      title
+      year
+      actors {
+        id
+        name
+      }
+    }
+  }
+}
+
+mutation updateMovie {
+  updateMovie(id: 1, input: {title: "Kengan Ashura", year: 2019, actors: [{id: 1}, {id: 2}]}) {
+    movie {
+      id
+      title
+      year
+      actors {
+        id
+        name
+      }
+    }
+  }
+}
